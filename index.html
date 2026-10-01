@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .main {
+            display: flex;
+        }
+
+        nav {
+            display: flex;
+            background-color: rgba(0, 0, 0, 0);
+            justify-content: space-around;
+        }
+        
+        .shortcut {
+            display: flex;
+            color: black;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 800;
+            margin-top: 16px;
+        }
+    
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .section {
+            background-size: cover;   
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .section.one {
+            background-image: url(./assets/sectiononebg.jpg);
+            position: relative;
+        }
+
+        .content {
+            flex: 1 1;
+            min-width: 0;
+        }
+
+        #introduction {
+            display: flex;  
+            flex-direction: column;
+            margin: 0;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            width: 100%;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        .landingtext {
+            color: rgb(0, 0, 0, 0);
+        }
+
+        li.landingtext a {
+            -webkit-text-stroke: 1px rgb(255, 61, 177);
+            color: rgb(0, 0, 0, 0);
+        }
+
+        p.landingtext {
+            -webkit-text-stroke: 1px rgb(255, 61, 177);
+        }
+
+        h1.landingtext {
+            -webkit-text-stroke: 2px rgb(255, 61, 177);
+        }
+
+        .textbox {
+            position: relative;
+            top: 0;
+            max-width: 100%;
+        }
+
+        .textbox h1 {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            margin: 0;
+        }
+
+        .textbox p {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-weight: 600;
+        }
+
+        #hobbybutton {
+            padding: 8px 24px;
+            border-radius: 9999px;
+            color: #5B7C99;   
+            font-weight: 800;
+            box-shadow: 0 4px 14px 0 rgba(0, 123, 255, 0.4);
+            background-color: #59dad600;
+            border: 2px solid #e18b92;
+            font-size: 16px;
+        }
+
+        #hobbybutton:hover {
+            border: 2px solid #A0E7E5;
+            color: #fd8181;
+            box-shadow: 0 0 15px rgba(232, 197, 200, 0.6);
+        }
+
+        a img {
+            width: 80px;
+            height: 80px;
+            list-style: none;
+        }
+
+        .logoContainer {    
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            padding: 0;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0);
+            margin: 0;
+            display: inline;
+        }
+        footer p {
+            font-size: 18px;
+            font-weight: 700;
+            -webkit-text-stroke: 0.5px rgb(255, 255, 255);
+            color: rgba(0, 0, 0, 0.934);
+            margin: 0;
+            display: inline;
+        }
+
+        .shortcut a:hover {
+            -webkit-text-stroke: 2px rgb(59, 216, 255);
+        }
+
+        .transition {
+            background-image: linear-gradient(#040a0e00, #000000); 
+            height: 85px;
+            margin: 0;
+            position: absolute;
+            inset: auto 0 0 0;
+            pointer-events: none;
+        }
+
+        .section.two {
+            background-image: url(./assets/sectiontwobg.png);
+            margin: 0;
+            min-height: max(100vh, 1200px);
+            width: 100%;
+            background-position: 35% 50%;
+        }
+
+        .list ol {
+            display: flex;
+            flex-wrap: wrap;
+            color: white;
+            justify-content: space-around;
+            margin: 0;
+            padding: 24px;
+            box-sizing: border-box;
+            list-style-type: none;
+            gap: 20px;
+        }
+
+        .list {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .list h2 {
+            text-align: center;
+            margin-top: 24px;
+            font-size: clamp(1.75rem, 5vw, 2.25rem);
+            color: rgba(51, 146, 205, 0);
+            -webkit-text-stroke: 1px rgb(255, 255, 255);
+        }
+
+        .game h3 {
+            text-align: center;
+            color: rgba(51, 146, 205, 0);
+            -webkit-text-stroke: 1px rgb(255, 255, 255);
+            font-size: clamp(1.75rem, 5vw, 2.25rem);
+        }
+
+        .game p {
+            margin: 4px 16px;
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            color: rgba(51, 146, 205, 0);
+            -webkit-text-stroke: 0.5px rgb(255, 255, 255);
+        }
+
+        .game {
+            flex: 1 1 280px;
+            border: 2px solid white;
+            box-shadow: 0 4px 14px 0 whitesmoke;
+            border-radius: 5%;
+            position: relative;
+            overflow: hidden;
+            height: auto;
+            min-height: 700px;
+            background-image: linear-gradient(#3498db34, hsla(224, 39%, 57%, 0.582)); 
+            transition: transform 0.3s ease;
+            min-width: 0;
+        }
+
+        .game.one::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url('./assets/gameonebghover.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            z-index: 1;
+        }
+
+        .game.two::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url('./assets/gametwobghover.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            z-index: 1;
+        }
+
+        .game.three::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url('./assets/gamethreebghover.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+            z-index: 1;
+        }
+
+        .game > * {
+            position: relative;
+            z-index: 2; 
+        }
+
+        @media (hover: hover) {
+            .game:hover::before {
+                opacity: 1;
+            }
+
+            .game:hover h3, .game:hover p {
+                -webkit-text-stroke: 1px rgb(0, 0, 0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .shortcut {
+                font-size: 18px;
+                gap: 8px;
+            }
+
+            .logoContainer {
+                gap: 20px;
+            }
+
+            a img {
+                width: 56px;
+                height: 56px;
+            }
+        }
+        .section.three {
+            background-image: url(./assets/sectionthreebg.jpg);
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 48px 24px;
+            box-sizing: border-box;
+        }
+
+        .playlist {
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .playlist h2 {
+            text-align: center;
+            font-size: clamp(1.75rem, 5vw, 2.25rem);
+            color: rgba(51, 146, 205, 0);
+            -webkit-text-stroke: 1px rgb(255, 255, 255);
+        }
+
+        .playlist-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            align-items: center;
+            padding: 24px;
+            border: 2px solid white;
+            border-radius: 24px;
+            box-shadow: 0 4px 14px 0 whitesmoke;
+            background-image: linear-gradient(#3498db34, hsla(224, 39%, 57%, 0.582));
+            backdrop-filter: blur(6px);
+        }
+
+        .playlist-info {
+            flex: 1 1 280px;
+            min-width: 0;
+        }
+
+        .playlist-info h3 {
+            font-size: clamp(1.75rem, 5vw, 2.25rem);
+            margin: 0 0 8px;
+            color: rgba(51, 146, 205, 0);
+            -webkit-text-stroke: 1px rgb(255, 255, 255);
+        }
+
+        .playlist-info p {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            color: rgba(51, 146, 205, 0);
+            -webkit-text-stroke: 0.5px rgb(255, 255, 255);
+        }
+
+        .playlist-card iframe {
+            flex: 2 1 320px;
+            min-width: 0;
+            width: 100%;
+            border: 0;
+            border-radius: 12px;
+        }
+
+        .spotifybutton {
+            padding: 8px 24px;
+            border-radius: 9999px;
+            color: #5B7C99;
+            font-weight: 800;
+            font-size: 16px;
+            background-color: #59dad600;
+            border: 2px solid #e18b92;
+            box-shadow: 0 4px 14px 0 rgba(0, 123, 255, 0.4);
+            cursor: pointer;
+        }
+
+        .spotifybutton:hover {
+            border: 2px solid #A0E7E5;
+            color: #fd8181;
+            box-shadow: 0 0 15px rgba(232, 197, 200, 0.6);
+        }
+
+        .section.four {
+            background-image: url(./assets/sectionfourbg.png);
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 48px 24px 24px;
+            box-sizing: border-box;
+            background-position: 35% 50%;
+        }
+
+        .four-main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fav-card {
+            width: 100%;
+            max-width: 700px;
+            padding: 24px;
+            box-sizing: border-box;
+            text-align: center;
+            border: 2px solid white;
+            border-radius: 24px;
+            box-shadow: 0 4px 14px 0 whitesmoke;
+            background-image: linear-gradient(#3498db34, hsla(224, 39%, 57%, 0.582));
+            backdrop-filter: blur(6px);
+        }
+
+        .fav-card h2 {
+            margin: 0 0 16px;
+            font-size: clamp(1.75rem, 5vw, 2.25rem);
+            color: rgba(51, 146, 205, 0);
+            -webkit-text-stroke: 1px rgb(255, 255, 255);
+        }
+
+        .songlist {
+            list-style: disc;
+            list-style-position: inside;
+            margin: 0;
+            padding: 0;
+        }
+
+        .songlist li {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            margin-bottom: 10px;
+            color: rgba(51, 146, 205, 0);
+            -webkit-text-stroke: 0.5px rgb(255, 255, 255);
+        }
+
+        .songlist li::marker {
+            color: white;
+        }
+
+        .socialbar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 12px 32px;
+            margin: 32px auto 0;
+            padding: 10px 24px;
+            width: fit-content;
+            max-width: 100%;
+            box-sizing: border-box;
+            border: 2px solid white;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px 0 whitesmoke;
+            background-image: linear-gradient(#3498db34, hsla(224, 39%, 57%, 0.582));
+            backdrop-filter: blur(6px);
+        }
+
+        .socialbar a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .socialbar a img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .socialbar a:hover {
+            color: #fd8181;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="content">
+            <div class="section one">
+                <nav>
+                    <ul class="shortcut">    
+                        <li class="landingtext"><a href="index.html">Home</a></li>
+                        <li class="landingtext"><a href="about.html">About</a></li>
+                        <li class="landingtext"><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div id="introduction" >
+                    <div class="textbox">
+                        <h1 class="landingtext">Welcome to my website.</h1>
+                        <p class="landingtext">I am Kyle Denver Gomez</p>
+                        <p class="landingtext">of DCPET 1-3</p>
+                        <a href="#hobby"><button id="hobbybutton">Who am I?</button></a>
+                    </div>
+                </div>
+                <div class="transition">
+
+                </div>
+            </div>
+            <div class="section two">
+                <div class="list" id="hobby">
+                    <h2>Games I enjoy</h2>
+                    <ol>
+                        <li class="game one"><div>
+                            <h3>Terraria</h3>
+                            <p>A masterpiece you could sink hundreds of hours into.</p>
+                            <p>Hours played: 888.3 hours</p>
+                        </div></li>
+                        <li class="game two"><div>
+                            <h3>Hollow Knight: Silksong</h3>
+                            <p>An amazing sequel that was worth the years waiting for it. One of the best games of all time. Im including the original Hollow Knight in this.</p>
+                            <p>Total Hours played across both games: 168.8 hours</p>
+                        </div></li>
+                        <li class="game three"><div>
+                            <h3>Nine Sols</h3>
+                            <p>Id say an underrated masterpiece that combines beautiful art, exhilarating gameplay, and deep story.</p>
+                            <p>Hours played: 27 hours</p>
+                        </div></li>
+                    </ol>
+                </div>
+                <div class="transition">
+
+                </div>
+            </div>
+            <div class="section three">
+                <div class="playlist" id="music">
+                    <h2>Music I'm into</h2>
+                    <div class="playlist-card">
+                        <div class="playlist-info">
+                            <h3>Melting pot</h3>
+                            <p>Like the title suggests, its a melting pot of all my favorite songs.</p>
+                            <p>Songs: 267</p>
+                            <a href="https://open.spotify.com/playlist/0BPVhPhz12So30cbUUkXmb?si=532084855e1c4bc8&pt=51453f294c598b0b29eb0e095adbab8a" target="_blank">
+                                <button class="spotifybutton">Open in Spotify</button>
+                            </a>
+                        </div>
+                        <iframe
+                            src="https://open.spotify.com/embed/playlist/0BPVhPhz12So30cbUUkXmb?utm_source=generator&si=69be0544d7b34d03>"
+                            height="352"
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"
+                            title="My Spotify playlist">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="transition">
+
+                </div>
+            </div>
+            <div class="section four">
+                <div class="four-main">
+                    <div class="fav-card">
+                        <h2>Favorite Songs</h2>
+                        <ul class="songlist">
+                            <li>Soldier Side - System of a Down</li>
+                            <li>Sad Statue - System of a Down</li>
+                            <li>Toxicity - System of a Down</li>
+                            <li>King for a day - Pierce the veil</li>
+                            <li>New Born - Muse</li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class="socialbar" id="social">
+                    <li><a href="https://github.com/veil-dev" target="_blank"><img src="./assets/github.png" alt="github logo"><span>veil-dev</span></a></li>
+                    <li><a href="https://www.facebook.com/gomez.kyle.denver/" target="_blank"><img src="./assets/facebook.png" alt="facebook logo"><span>gomez.kyle.denver</span></a></li>
+                    <li><a href="https://www.tiktok.com/@velz483" target="_blank"><img src="./assets/tiktok.png" alt="tiktok logo"><span>@velz483</span></a></li>
+                </ul>
+                <footer>
+                    <p>&copy; 2026 Kyle Gomez. All rights reserved.</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
